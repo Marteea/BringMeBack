@@ -7,6 +7,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2">
+            <Border.Background>
+                <LinearGradientBrush EndPoint="0.5,5" StartPoint="0.5,0">
+                    <GradientStop Color="#343F4B" Offset="0.5" />
+                    <GradientStop Color="White" Offset="2" />
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        
+        <Image Grid.Row="0" Grid.Column="0" Margin="40,40,40,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="Assets/btn_BringMeBack.png"/>
+
+        <Image Grid.Row="1" Grid.Column="0" Margin="40,40,40,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Source="Assets/btn_SOS.png"/>
+        
+        
     </Grid>
 </Page>
