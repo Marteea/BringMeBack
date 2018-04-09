@@ -107,9 +107,14 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="BringMeBack_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\btn_BringMeBack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\btn_BringMeBack_shadow.png" />
+    <Content Include="Assets\btn_BringMeBack_shadow_push.png" />
+    <Content Include="Assets\btn_SOS.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -140,6 +145,9 @@
     <PackageReference Include="Xamarin.Forms">
       <Version>2.3.4.224</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BringMeBack_TemporaryKey.pfx" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
