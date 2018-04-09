@@ -1,4 +1,5 @@
 ﻿
+using BringMeBack;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -30,5 +31,16 @@ namespace BMB
 
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(BMB.Connexion));
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(MainPage));
+        }
     }
 }
