@@ -113,7 +113,11 @@
     <None Include="BringMeBack_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\btn_BringMeBack.png" />
+    <Content Include="Assets\btn_BringMeBack.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\btn_BringMeBack_shadow.png" />
+    <Content Include="Assets\btn_BringMeBack_shadow_push.png" />
     <Content Include="Assets\btn_SOS.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
