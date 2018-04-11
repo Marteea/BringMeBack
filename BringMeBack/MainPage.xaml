@@ -12,9 +12,9 @@
             <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
             <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundTransparentBrush}"/>
             <Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}"/>
-            <Setter Property="Margin" Value="40,40,40,40"/>
-            <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="VerticalAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
@@ -32,23 +32,18 @@
                                     </VisualState>
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
+                                            
+                                            
                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
                                         <Storyboard>
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseMediumLowBrush}"/>
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseHighBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
+                                            
+                                            
                                             <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
@@ -57,19 +52,22 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentPresenter">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledBaseMediumLowBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Stroke" Storyboard.TargetName="BorderCircle">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlDisabledTransparentBrush}"/>
-                                            </ObjectAnimationUsingKeyFrames>
+                                            
+                                           
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <ContentPresenter x:Name="ContentPresenter" 
+                                              VerticalAlignment="Center" 
+                                              AutomationProperties.AccessibilityView="Raw" 
+                                              ContentTemplate="{TemplateBinding ContentTemplate}" 
+                                              ContentTransitions="{TemplateBinding ContentTransitions}" 
+                                              Content="{TemplateBinding Content}" 
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             <Ellipse x:Name="BorderCircle" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="0"/>
-                            <Image Source="ms-appx:///Assets/btn_BringMeBack.png"/>
+
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
@@ -97,9 +95,16 @@
         </Border>
 
 
-        <Button Grid.Row="0" Grid.Column="0"  Style="{StaticResource CircleButtonStyle}" Click="Button_Click">
-           
+        <Button Grid.Row="0" Grid.Column="0"  Style="{StaticResource CircleButtonStyle}">
+            <Image Source="ms-appx:///Assets/btn_BringMeBack.png"/>
         </Button>
 
+        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource CircleButtonStyle}">
+
+            <Image Source="ms-appx:///Assets/btn_SOS.png" />
+            
+        </Button>
+
+        
     </Grid>
 </Page>
