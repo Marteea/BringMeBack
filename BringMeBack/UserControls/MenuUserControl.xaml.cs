@@ -34,12 +34,6 @@ namespace BringMeBack.UserControls
                     case "Call":
                         this.rect.Fill = new SolidColorBrush(Color.FromArgb(180, 255, 0,0));
                         break;
-                    case "SOS":
-                        this.rect.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 166, 255));
-                        break;
-                    case "Ethylotest":
-                        this.rect.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 166, 255));
-                        break;
                     default:
                         break;
                 }
@@ -50,12 +44,6 @@ namespace BringMeBack.UserControls
         {
             this.InitializeComponent();
             //this.rect.Fill = new SolidColorBrush(Color.FromArgb((byte)230, (byte)47, (byte)47,3));
-        }
-
-        private void Retour(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(MainPage));
         }
     }
 }
