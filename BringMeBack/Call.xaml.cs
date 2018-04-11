@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+using BringMeBack;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,22 +17,19 @@ using Windows.UI.Xaml.Navigation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace BringMeBack
+namespace BMB
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class Call : Page
     {
-        public MainPage()
+        public Call()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();           
+
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(BMB.Call));
-        }
+       
     }
 }
