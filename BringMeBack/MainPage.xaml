@@ -8,7 +8,6 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-        <Image x:Name="PushImage" Source="ms-appx:///Assets/btn_BringMeBack.png"/>
         <Style x:Key="CircleButtonStyle" TargetType="Button">
             <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
             <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundTransparentBrush}"/>
@@ -33,8 +32,6 @@
                                     </VisualState>
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
-                                            
-                                            
                                             <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
@@ -43,8 +40,6 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            
-                                            
                                             <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
@@ -53,8 +48,6 @@
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
                                                 <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            
-                                           
                                         </Storyboard>
                                     </VisualState>
                                 </VisualStateGroup>
@@ -68,9 +61,15 @@
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             <Ellipse x:Name="BorderCircle" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="0"/>
-
                         </Grid>
                     </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="Rectangle" x:Name="ImageFill">
+            <Setter Property="Fill">
+                <Setter.Value>
+                    <ImageBrush ImageSource="ms-appx:///Assets/btn_SOS.png" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -101,11 +100,13 @@
         </Button>
 
         <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource CircleButtonStyle}">
-
             <Image Source="ms-appx:///Assets/btn_SOS.png" />
-            
         </Button>
 
-        
+        <Rectangle Grid.Row="3" Style="{StaticResource ImageFill}" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="40" Width="40">
+        </Rectangle>
+        <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0, 30" Text="ICI" SelectionChanged="TextBlock_SelectionChanged" >
+
+        </TextBlock>
     </Grid>
 </Page>
