@@ -95,6 +95,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ethylotest.xaml.cs">
+      <DependentUpon>Ethylotest.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SOS.xaml.cs">
+      <DependentUpon>SOS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Call.xaml.cs">
       <DependentUpon>Call.xaml</DependentUpon>
     </Compile>
@@ -125,6 +131,8 @@
     <Content Include="Assets\btn_BringMeBack_shadow_push.png" />
     <Content Include="Assets\btn_SOS.png" />
     <Content Include="Assets\Callicon.png" />
+    <Content Include="Assets\Callsosicon.png" />
+    <Content Include="Assets\loader.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -139,6 +147,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Ethylotest.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SOS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Call.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

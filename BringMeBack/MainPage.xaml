@@ -95,17 +95,17 @@
         </Border>
 
 
-        <Button Grid.Row="0" Grid.Column="0"  Style="{StaticResource CircleButtonStyle}">
+        <Button Grid.Row="0" Grid.Column="0"  Style="{StaticResource CircleButtonStyle}" Click="Button_Click">
             <Image Source="ms-appx:///Assets/btn_BringMeBack.png"/>
         </Button>
 
-        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource CircleButtonStyle}">
+        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource CircleButtonStyle}" Click="Button_Click_SOS">
             <Image Source="ms-appx:///Assets/btn_SOS.png" />
         </Button>
 
         <Rectangle Grid.Row="3" Style="{StaticResource ImageFill}" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="40" Width="40">
         </Rectangle>
-        <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0, 30" Text="ICI" SelectionChanged="TextBlock_SelectionChanged" >
+        <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0, 30" Text="ICI">
 
         </TextBlock>
     </Grid>
