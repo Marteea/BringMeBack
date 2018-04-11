@@ -127,12 +127,11 @@
     <Content Include="Assets\btn_BringMeBack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\btn_BringMeBack_shadow.png" />
-    <Content Include="Assets\btn_BringMeBack_shadow_push.png" />
     <Content Include="Assets\btn_SOS.png" />
     <Content Include="Assets\Callicon.png" />
     <Content Include="Assets\Callsosicon.png" />
     <Content Include="Assets\loader.png" />
+    <Content Include="Assets\chevron-sign-down.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

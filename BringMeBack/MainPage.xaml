@@ -27,26 +27,37 @@
                                 <VisualStateGroup x:Name="CommonStates">
                                     <VisualState x:Name="Normal">
                                         <Storyboard>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                            <PointerUpThemeAnimation 
+                                                Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="PointerOver">
                                         <Storyboard>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                            <PointerUpThemeAnimation 
+                                                Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Pressed">
                                         <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
+                                            <ObjectAnimationUsingKeyFrames 
+                                                Storyboard.TargetProperty="Fill" 
+                                                Storyboard.TargetName="BorderCircle">
+                                                <DiscreteObjectKeyFrame 
+                                                    KeyTime="0" 
+                                                    Value="{ThemeResource SystemControlHighlightBaseMediumLowBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
-                                            <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
+                                            <PointerDownThemeAnimation 
+                                                Storyboard.TargetName="RootGrid"/>
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Disabled">
                                         <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="BorderCircle">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
+                                            <ObjectAnimationUsingKeyFrames 
+                                                Storyboard.TargetProperty="Fill" 
+                                                Storyboard.TargetName="BorderCircle">
+                                                <DiscreteObjectKeyFrame 
+                                                    KeyTime="0" 
+                                                    Value="{ThemeResource SystemControlBackgroundBaseLowBrush}"/>
                                             </ObjectAnimationUsingKeyFrames>
                                         </Storyboard>
                                     </VisualState>
@@ -60,16 +71,11 @@
                                               Content="{TemplateBinding Content}" 
                                               HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                               VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Ellipse x:Name="BorderCircle" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="0"/>
+                            <Ellipse x:Name="BorderCircle" 
+                                     Stroke="{TemplateBinding BorderBrush}" 
+                                     StrokeThickness="0"/>
                         </Grid>
                     </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style TargetType="Rectangle" x:Name="ImageFill">
-            <Setter Property="Fill">
-                <Setter.Value>
-                    <ImageBrush ImageSource="ms-appx:///Assets/btn_SOS.png" />
                 </Setter.Value>
             </Setter>
         </Style>
@@ -85,7 +91,11 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2">
+        <Border 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            Grid.RowSpan="3" 
+            Grid.ColumnSpan="2">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,5" StartPoint="0.5,0">
                     <GradientStop Color="#343F4B" Offset="0.5" />
@@ -95,18 +105,51 @@
         </Border>
 
 
-        <Button Grid.Row="0" Grid.Column="0"  Style="{StaticResource CircleButtonStyle}" Click="Button_Click">
+        <Button 
+            Grid.Row="0" 
+            Grid.Column="0" 
+            Style="{StaticResource CircleButtonStyle}" 
+            Click="Button_Click">
             <Image Source="ms-appx:///Assets/btn_BringMeBack.png"/>
         </Button>
 
-        <Button Grid.Row="1" Grid.Column="0" Style="{StaticResource CircleButtonStyle}" Click="Button_Click_SOS">
+        <Button 
+            Grid.Row="1" 
+            Grid.Column="0" 
+            Style="{StaticResource CircleButtonStyle}">
             <Image Source="ms-appx:///Assets/btn_SOS.png" />
         </Button>
 
-        <Rectangle Grid.Row="3" Style="{StaticResource ImageFill}" HorizontalAlignment="Center"  VerticalAlignment="Center" Height="40" Width="40">
+        <Rectangle 
+            Grid.Row="3" 
+            HorizontalAlignment="Stretch"  
+            VerticalAlignment="Stretch" >
+            <Rectangle.Style>
+                <Style TargetType="Rectangle">
+                    <Style.Setters>
+                        <Setter 
+                            Property="Fill" 
+                            Value="Gray" />
+                    </Style.Setters>
+                </Style>
+            </Rectangle.Style>
         </Rectangle>
-        <TextBlock Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0, 30" Text="ICI">
-
+        <TextBlock 
+            Grid.Row="4" 
+            HorizontalAlignment="Center" 
+            VerticalAlignment="Top" 
+            Text="Connecter votre éthilotest pour connaître votre alcoolémie" 
+            FontFamily="Roboto" Foreground="White">
         </TextBlock>
+        <Button 
+            Grid.Row="3" 
+            Style="{StaticResource CircleButtonStyle}"
+            HorizontalAlignment="Center"  
+            VerticalAlignment="Center" 
+            Height="40" 
+            Width="40"
+            Click="Button_Click_Arrow">
+            <Image Source="ms-appx:///Assets/chevron-sign-down.png" />
+        </Button>
     </Grid>
 </Page>
