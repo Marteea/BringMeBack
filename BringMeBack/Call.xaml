@@ -14,8 +14,8 @@
             <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundTransparentBrush}"/>
             <Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}"/>
             <Setter Property="Margin" Value="40,40,40,40"/>
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Stretch"/>
             <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
             <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
@@ -107,7 +107,7 @@
         <Button Grid.Row="1" Grid.Column="0"  Style="{StaticResource CircleButtonStyle}">
 
         </Button>
-        <TextBlock Text="Appeler Jean" Foreground="White"  Grid.Column="0" Grid.Row="2" FontSize="45"  HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" />
+        <TextBlock Text="Appeler Jean" Grid.Column="0" Grid.Row="2" FontSize="45"  HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" />
 
     </Grid>
 </Page>
