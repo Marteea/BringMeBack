@@ -95,12 +95,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Ethylotest.xaml.cs">
-      <DependentUpon>Ethylotest.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SOS.xaml.cs">
-      <DependentUpon>SOS.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Call.xaml.cs">
       <DependentUpon>Call.xaml</DependentUpon>
     </Compile>
