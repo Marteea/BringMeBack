@@ -32,5 +32,11 @@ namespace BringMeBack
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.Call));
         }
+
+        private void Button_Click_SOS(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(BMB.SOS));
+        }
     }
 }
