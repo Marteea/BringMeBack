@@ -109,7 +109,7 @@
 
         </Button>
         <TextBlock Text="Appareil Connecté : Ethylotest de JeanJean" Grid.Column="0" Foreground="White" Grid.Row="1" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" />
-        <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter"  Click="Button_Click_1"/>
+        <Button Grid.Row="3" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter"  />
 
 
     </Grid>
