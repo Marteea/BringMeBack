@@ -38,7 +38,7 @@ namespace BringMeBack.UserControls
                         this.rect.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 166, 255));
                         break;
                     case "Ethylotest":
-                        this.rect.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 166, 255));
+                        this.rect.Fill = new SolidColorBrush(Color.FromArgb(180, 255, 0, 0));
                         break;
                     default:
                         break;
