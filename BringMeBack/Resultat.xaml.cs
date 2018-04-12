@@ -22,18 +22,14 @@ namespace BMB
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class Ethylotest : Page
+    public sealed partial class Resultat : Page
     {
-        public Ethylotest()
+        public Resultat()
         {
             this.InitializeComponent();           
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(BMB.Resultat));
-        }
+       
     }
 }

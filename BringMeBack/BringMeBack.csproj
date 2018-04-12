@@ -95,6 +95,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resultat.xaml.cs">
+      <DependentUpon>Resultat.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Ethylotest.xaml.cs">
       <DependentUpon>Ethylotest.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Resultat.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Ethylotest.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
