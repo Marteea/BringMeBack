@@ -101,6 +101,9 @@
     <Compile Include="Connexion.xaml.cs">
       <DependentUpon>Connexion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ethylotest.xaml.cs">
+      <DependentUpon>Ethylotest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Inscription.xaml.cs">
       <DependentUpon>Inscription.xaml</DependentUpon>
     </Compile>
@@ -108,6 +111,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SOS.xaml.cs">
+      <DependentUpon>SOS.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MenuUserControl.xaml.cs">
       <DependentUpon>MenuUserControl.xaml</DependentUpon>
     </Compile>
