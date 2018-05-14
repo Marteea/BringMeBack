@@ -109,7 +109,7 @@
             Grid.Row="0" 
             Grid.Column="0" 
             Style="{StaticResource CircleButtonStyle}" 
-            Click="Button_Click">
+            Click="BMB_Click">
             <Image Source="ms-appx:///Assets/btn_BringMeBack.png"/>
         </Button>
 
@@ -117,7 +117,7 @@
             Grid.Row="1" 
             Grid.Column="0" 
             Style="{StaticResource CircleButtonStyle}"
-            Click="Button_Click_SOS">
+            Click="SOS_Click">
             <Image Source="ms-appx:///Assets/btn_SOS.png" />
             
         </Button>

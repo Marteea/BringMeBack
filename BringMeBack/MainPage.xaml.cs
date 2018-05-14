@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -22,18 +23,21 @@ namespace BringMeBack
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        
         public MainPage()
         {
             this.InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void BMB_Click(object sender, RoutedEventArgs e)
         {
+
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.Call));
         }
 
-        private void Button_Click_SOS(object sender, RoutedEventArgs e)
+        private void SOS_Click(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.SOS));

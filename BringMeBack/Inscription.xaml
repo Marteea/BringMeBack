@@ -133,11 +133,11 @@
 
             <Button Grid.Row="1" Grid.Column="13" HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Connexion" Style="{StaticResource SlidConnexion}" Click="Button_Click" />
             <Button Grid.Row="1" Grid.Column="17" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Inscription" Style="{StaticResource SlidInscription}" />
-            <TextBox Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Nom" />
-            <TextBox Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Prénom" />
-            <TextBox Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Date de Naissance" />
-            <TextBox Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Adresse Email" />
-            <TextBox Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Mot de passe" />
+            <TextBox x:Name="name" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Nom" />
+            <TextBox x:Name="firstname" Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Prénom" />
+            <TextBox x:Name="birthdate" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Date de Naissance" />
+            <TextBox x:Name="email" Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Adresse Email" />
+            <TextBox x:Name="password" Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Mot de passe" />
             <TextBox Grid.Row="15" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Confirmer le Mot de passe" />
             <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter" Style="{StaticResource SignInButton}" Click="Button_Click_1"/>
 

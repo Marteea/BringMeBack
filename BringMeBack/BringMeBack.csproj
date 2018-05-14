@@ -95,6 +95,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class\Post.cs" />
+    <Compile Include="Class\User.cs" />
     <Compile Include="Resultat.xaml.cs">
       <DependentUpon>Resultat.xaml</DependentUpon>
     </Compile>
@@ -186,6 +188,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>11.0.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>2.3.4.224</Version>
