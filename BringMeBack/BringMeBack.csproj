@@ -95,7 +95,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Class\Post.cs" />
     <Compile Include="Class\User.cs" />
     <Compile Include="Resultat.xaml.cs">
       <DependentUpon>Resultat.xaml</DependentUpon>

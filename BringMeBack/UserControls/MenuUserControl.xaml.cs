@@ -51,6 +51,8 @@ namespace BringMeBack.UserControls
             this.InitializeComponent();
             //this.rect.Fill = new SolidColorBrush(Color.FromArgb((byte)230, (byte)47, (byte)47,3));
         }
+        
+
 
         private void Retour(object sender, RoutedEventArgs e)
         {

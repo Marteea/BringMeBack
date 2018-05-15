@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BringMeBack.Class;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,12 +21,18 @@ namespace BringMeBack
     /// <summary>
     /// Fournit un comportement spécifique à l'application afin de compléter la classe Application par défaut.
     /// </summary>
+     
+    
+
     sealed partial class App : Application
     {
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé
         /// à être exécutée. Elle correspond donc à l'équivalent logique de main() ou WinMain().
         /// </summary>
+        /// 
+        public static User globaluser = null;
+        /// 
         public App()
         {
             this.InitializeComponent();

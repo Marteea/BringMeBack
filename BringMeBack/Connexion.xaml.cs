@@ -106,7 +106,7 @@ namespace BMB
             {
 
                 Frame rootFrame = Window.Current.Content as Frame;
-                rootFrame.Navigate(typeof(MainPage));
+                rootFrame.Navigate(typeof(MainPage),user);
 
             }
             
