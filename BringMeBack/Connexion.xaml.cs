@@ -47,13 +47,13 @@ namespace BMB
         
 
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Switch(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.Inscription));
         }
 
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Connecter(object sender, RoutedEventArgs e)
         {
 
             // recuperation des valeurs email et mdp 

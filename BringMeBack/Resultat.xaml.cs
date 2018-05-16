@@ -64,7 +64,7 @@ namespace BMB
             return random.NextDouble() * (maximum - minimum) + minimum;
         }
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_RamenezMoi(object sender, RoutedEventArgs e)
         {
 
 

@@ -31,7 +31,7 @@ namespace BMB
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Connect_Ethylo(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.Resultat));

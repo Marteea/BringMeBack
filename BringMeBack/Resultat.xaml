@@ -105,7 +105,7 @@
             </Border.Background>
         </Border>
         <TextBlock x:Name="taux" Text="1,5 G" Grid.Column="0" Foreground="#F95F62" Grid.Row="1" FontSize="45" HorizontalAlignment="Center" VerticalAlignment="Center" Style="{StaticResource TitleTextBlockStyle}" />
-        <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="15" Height="50px"  Content="Ramenez moi" Background="#77D353" Foreground="White" Click="Button_Click" />
+        <Button Grid.Row="4" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  Grid.ColumnSpan="15" Height="50px"  Content="Ramenez moi" Background="#77D353" Foreground="White" Click="Button_RamenezMoi" />
         <Button 
             Grid.Row="2" 
             Grid.Column="0" 
