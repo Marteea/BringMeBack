@@ -46,7 +46,8 @@ namespace BringMeBack
 
         private async void BMB_Click(object sender, RoutedEventArgs e)
         {
-            
+            Uri uri = new Uri("ms-call:+330678594398");
+            await Launcher.LaunchUriAsync(uri);
             //Create an HTTP client object
             Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
 
@@ -92,6 +93,9 @@ namespace BringMeBack
         private async void SOS_Click(object sender, RoutedEventArgs e)
         {
 
+
+            Uri uri = new Uri("ms-call:+112");
+            await Launcher.LaunchUriAsync(uri);
 
             //Create an HTTP client object
             Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
