@@ -149,7 +149,9 @@
             HorizontalAlignment="Center"  
             VerticalAlignment="Center" 
             Height="40" 
-            Width="40">
+            Width="40"
+            Click="Ethy_Click"
+            >            
             <Image Source="ms-appx:///Assets/chevron-sign-down.png" />
         </Button>
     </Grid>

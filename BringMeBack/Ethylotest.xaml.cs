@@ -26,7 +26,8 @@ namespace BMB
     {
         public Ethylotest()
         {
-            this.InitializeComponent();           
+            this.InitializeComponent();
+            LibelleEthylo.Text = LibelleEthylo.Text + App.globaluser.firstname_user+" - "+App.globaluser.name_user;
 
         }
 

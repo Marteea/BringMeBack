@@ -133,5 +133,19 @@ namespace BringMeBack
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.SOS));
         }
-    }
+
+        private  void Ethy_Click(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(BMB.Ethylotest));
+        }
+
+
+
+
+        }
+
+    
+
+
 }

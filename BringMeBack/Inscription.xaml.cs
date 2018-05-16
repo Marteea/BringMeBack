@@ -33,7 +33,9 @@ namespace BMB
         private string Email;        
         private string Password;
         private string Firstname;
+#pragma warning disable CS0108 // 'Inscription.Name' masque le membre hérité 'FrameworkElement.Name'. Utilisez le mot clé new si le masquage est intentionnel.
         private string Name;
+#pragma warning restore CS0108 // 'Inscription.Name' masque le membre hérité 'FrameworkElement.Name'. Utilisez le mot clé new si le masquage est intentionnel.
         private string Birthdate;
         public User user;
 

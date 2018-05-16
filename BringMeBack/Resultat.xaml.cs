@@ -24,12 +24,27 @@ namespace BMB
     /// </summary>
     public sealed partial class Resultat : Page
     {
+        
         public Resultat()
         {
-            this.InitializeComponent();           
+            this.InitializeComponent();
+            taux.Text=AleaResult().ToString()+" G ";
+        }
+
+        private double  AleaResult()
+        {
+            Random rnd = new Random();
+
+            return Math.Round(GetRandomNumber(0, 1),2);
 
         }
 
-       
+        public double GetRandomNumber(double minimum, double maximum)
+        {
+            Random random = new Random();
+            return random.NextDouble() * (maximum - minimum) + minimum;
+        }
+
+
     }
 }
