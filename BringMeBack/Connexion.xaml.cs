@@ -109,6 +109,10 @@ namespace BMB
                 rootFrame.Navigate(typeof(MainPage),user);
 
             }
+            else
+            {
+                libelleErreur.Text = "Veuillez saisir le bon email et mot de passe : ce couple d'identifiant est inconnu";
+            }
             
         }
 

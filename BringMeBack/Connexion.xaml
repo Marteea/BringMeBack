@@ -134,7 +134,7 @@
             <TextBox x:Name="Email" Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Adresse Email" />
             <TextBox x:Name="Password" Grid.Row="14" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Mot de passe" />
             <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter" Style="{StaticResource SignInButton}" Click="Button_Click_1"/>
-
+            <TextBlock x:Name="libelleErreur" Grid.Row="10"  Grid.Column="2" Grid.ColumnSpan="12" Foreground="Red" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"  />
 
         </Grid>
 
