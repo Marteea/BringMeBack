@@ -10,53 +10,24 @@
 
         <Style x:Key="SignInButton" TargetType="Button">
             <Setter Property="FontFamily" Value="Roboto"/>
-
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Background" Value="#00A6FF"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid x:Name="RootGrid">
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <Storyboard>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="PointerOver">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#00A6FF"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="Pressed">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#00A6FF"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+            <Setter Property="Foreground" Value="White"/>    
+            
         </Style>
 
         <Style x:Key="SignInField" TargetType="TextBox">
             <Setter Property="FontFamily" Value="Roboto"/>
             <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="#343F4B"/>
+            <Setter Property="Background" Value="White"/>
             <Setter Property="Foreground" Value="White"/>
-
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
         </Style>
 
         <Style x:Key="SlidConnexion" TargetType="Button">
@@ -64,6 +35,8 @@
             <Setter Property="FontSize" Value="12"/>
             <Setter Property="Background" Value="#00A6FF"/>
             <Setter Property="Foreground" Value="White"/>
+            
+            
 
         </Style>
         <Style x:Key="SlidInscription" TargetType="Button">
@@ -131,9 +104,9 @@
 
             <Button Grid.Row="1" Grid.Column="13" HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Connexion" Style="{StaticResource SlidConnexion}" />
             <Button Grid.Row="1" Grid.Column="17" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Inscription" Style="{StaticResource SlidInscription}" Click="Button_Switch" />
-            <TextBox x:Name="Email" Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Adresse Email" />
-            <TextBox x:Name="Password" Grid.Row="14" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Mot de passe" />
-            <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter" Style="{StaticResource SignInButton}" Click="Button_Connecter"/>
+            <TextBox x:Name="Email" Grid.Row="12" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Adresse Email" />
+            <TextBox x:Name="Password" Grid.Row="14" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Mot de passe" />
+            <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter" Style="{StaticResource SlidConnexion}" Click="Button_Connecter"/>
             <TextBlock x:Name="libelleErreur" Grid.Row="10"  Grid.Column="2" Grid.ColumnSpan="12" Foreground="Red" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"  />
 
         </Grid>

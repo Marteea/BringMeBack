@@ -13,7 +13,8 @@ namespace BringMeBack.Class
         public string firstname_user { get; set; }
         public string birthdate_user { get; set; }
         public string email_user { get; set; }
-        public string password_user { get; set; }  
-       
-}
+        public string password_user { get; set; }
+        public int isparent { get; set; }
+
+    }
 }

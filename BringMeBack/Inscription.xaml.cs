@@ -33,15 +33,15 @@ namespace BMB
         private string Email;        
         private string Password;
         private string Firstname;
-#pragma warning disable CS0108 // 'Inscription.Name' masque le membre hérité 'FrameworkElement.Name'. Utilisez le mot clé new si le masquage est intentionnel.
-        private string Name;
-#pragma warning restore CS0108 // 'Inscription.Name' masque le membre hérité 'FrameworkElement.Name'. Utilisez le mot clé new si le masquage est intentionnel.
+        private new string Name;
         private string Birthdate;
+        private int IsParent;
         public User user;
 
         public Inscription()
         {
             this.InitializeComponent();
+           
 
 
         }
@@ -51,7 +51,7 @@ namespace BMB
             rootFrame.Navigate(typeof(BMB.Connexion));
         }
 
-        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Click_Inscription(object sender, RoutedEventArgs e)
         {
 
             // recuperation des valeurs email et mdp 
@@ -59,7 +59,19 @@ namespace BMB
             Firstname = firstname.Text;
             Email = email.Text;
             Password = password.Text;
+            // recuperer la valeur du datepicker         
+            
             Birthdate = birthdate.Text;
+            
+            if (McCheckBox.IsChecked==true){// si la case parent est coché
+                IsParent = 1;
+            }
+            else
+            {
+                IsParent = 0;
+            }
+
+            
 
 
 
@@ -83,7 +95,7 @@ namespace BMB
                 throw new Exception("Invalid header value: " + header);
             }
 
-            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Inscription.php?name=" + Name + "&firstname=" + Firstname+"&birthdate="+Birthdate+"&email="+Email+"&password="+Password);
+            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Inscription.php?name=" + Name + "&firstname=" + Firstname+"&birthdate="+Birthdate+"&email="+Email+"&password="+Password+"&isparent="+IsParent);
 
             //Send the GET request asynchronously and retrieve the response as a string.
             Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
