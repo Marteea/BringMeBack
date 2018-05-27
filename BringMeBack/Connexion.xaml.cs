@@ -104,6 +104,7 @@ namespace BMB
             }
             if(!(user is null))
             {
+                App.globaluser = user;
 
                 if (user.isparent == 0)// si un enfant se connecte
                 {
@@ -113,8 +114,10 @@ namespace BMB
                 else// si un parent se connecte
                 {
                     Frame rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(Call), user);
+                    rootFrame.Navigate(typeof(MainParent), user);
                 }
+
+                
                 
 
             }

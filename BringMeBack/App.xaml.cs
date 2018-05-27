@@ -32,6 +32,7 @@ namespace BringMeBack
         /// </summary>
         /// 
         public static User globaluser = null;
+        public static User principalChildren = null;
         /// 
         public App()
         {

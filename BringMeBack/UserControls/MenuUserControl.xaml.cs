@@ -23,6 +23,7 @@ namespace BringMeBack.UserControls
         
 
         private String myVar;
+        private bool ParentOrChild;
 
         public String CurrentPage
         {
@@ -33,13 +34,16 @@ namespace BringMeBack.UserControls
                 {
                     case "Call":
                         this.rect.Fill = new SolidColorBrush(Color.FromArgb(180, 255, 0,0));
+                        ParentOrChild = true;
                         break;
                     case "SOS":
                         this.rect.Fill = new SolidColorBrush(Color.FromArgb(255, 0, 166, 255));
+                        ParentOrChild = true;
                         break;
                     case "Ethylotest":
                         this.rect.Fill = new SolidColorBrush(Color.FromArgb(180, 255, 0, 0));
-                        break;
+                        ParentOrChild = true;
+                        break;                    
                     default:
                         break;
                 }
@@ -49,7 +53,7 @@ namespace BringMeBack.UserControls
         public MenuUserControl()
         {
             this.InitializeComponent();
-            //this.rect.Fill = new SolidColorBrush(Color.FromArgb((byte)230, (byte)47, (byte)47,3));
+            
         }
         
 
@@ -57,7 +61,15 @@ namespace BringMeBack.UserControls
         private void Retour(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(MainPage));
+            if(ParentOrChild)
+            {
+                rootFrame.Navigate(typeof(MainPage));
+            }
+            else
+            {
+                rootFrame.Navigate(typeof(MainParent));
+            }
+            
         }
     }
 }

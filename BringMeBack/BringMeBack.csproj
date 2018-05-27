@@ -95,7 +95,14 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Class\Historical.cs" />
     <Compile Include="Class\User.cs" />
+    <Compile Include="DetailsChildren.xaml.cs">
+      <DependentUpon>DetailsChildren.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainParent.xaml.cs">
+      <DependentUpon>MainParent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resultat.xaml.cs">
       <DependentUpon>Resultat.xaml</DependentUpon>
     </Compile>
@@ -118,6 +125,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\ChildrenUserControl.xaml.cs">
+      <DependentUpon>ChildrenUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MenuUserControl.xaml.cs">
       <DependentUpon>MenuUserControl.xaml</DependentUpon>
     </Compile>
@@ -128,18 +138,24 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\adduser.png" />
+    <Content Include="Assets\back.png" />
     <Content Include="Assets\btn_BringMeBack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\btn_SOS.png" />
     <Content Include="Assets\Callicon.png" />
     <Content Include="Assets\Callsosicon.png" />
+    <Content Include="Assets\infos.png" />
     <Content Include="Assets\loader.png" />
     <Content Include="Assets\chevron-sign-down.png" />
     <Content Include="Assets\chevron-sign-down.png" />
     <Content Include="Assets\ok.png" />
+    <Content Include="Assets\parameter.png" />
     <Content Include="Assets\red cross.jpg" />
     <Content Include="Assets\redcross.png" />
+    <Content Include="Assets\user.png" />
+    <Content Include="Assets\useradd.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -154,6 +170,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="DetailsChildren.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainParent.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Resultat.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -179,6 +203,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ChildrenUserControl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
