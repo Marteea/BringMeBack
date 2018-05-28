@@ -97,6 +97,9 @@
     </Compile>
     <Compile Include="Class\Historical.cs" />
     <Compile Include="Class\User.cs" />
+    <Compile Include="AddChildren.xaml.cs">
+      <DependentUpon>AddChildren.xaml</DependentUpon>
+    </Compile>
     <Compile Include="DetailsChildren.xaml.cs">
       <DependentUpon>DetailsChildren.xaml</DependentUpon>
     </Compile>
@@ -170,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddChildren.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DetailsChildren.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

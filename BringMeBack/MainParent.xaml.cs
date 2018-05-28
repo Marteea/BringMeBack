@@ -108,6 +108,14 @@ namespace BringMeBack
         }
 
 
+        private void Add_User(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(AddChildren));
+        }
+        
+
+
 
 
 
