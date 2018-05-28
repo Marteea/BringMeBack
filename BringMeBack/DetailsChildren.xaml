@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:UC="using:BringMeBack.UserControls"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     mc:Ignorable="d">
 
     <Page.Resources>
@@ -90,7 +91,7 @@
             <RowDefinition Height="0.25*"/>
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.5*"/>
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
@@ -169,6 +170,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <!--<Maps:MapControl Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4"
+       x:Name="MapControl1"            
+       ZoomInteractionMode="GestureAndControl"
+       TiltInteractionMode="GestureAndControl"   
+       MapServiceToken="AnfuLXH7FIb5I1d0pNr-mBpVWcDXeEtNOftonhHqA-GbOb61M7PL088JLD0BoiIr"/>-->
 
 
 

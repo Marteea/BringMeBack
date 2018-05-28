@@ -17,6 +17,7 @@ using Windows.System.UserProfile;
 using BringMeBack.Class;
 using BringMeBack.UserControls;
 using Newtonsoft.Json;
+using Windows.Devices.Geolocation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -28,7 +29,9 @@ namespace BringMeBack
     public sealed partial class DetailsChildren : Page
     {
         private List<Historical> listOfHistorical= new List<Historical>();
-       
+
+        
+
         public DetailsChildren()
         {
             this.InitializeComponent();
@@ -78,18 +81,7 @@ namespace BringMeBack
             
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
+       
 
 
 
