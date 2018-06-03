@@ -86,11 +86,11 @@
             <Setter Property="FontFamily" Value="Roboto"/>
             <Setter Property="FontSize" Value="14"/>
             <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
             <Setter Property="HeaderTemplate">            
                 <Setter.Value>
                     <DataTemplate>
-                        <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
+                        <TextBlock Foreground="White"  FontFamily="Times New Roman"></TextBlock>
                     </DataTemplate>
                 </Setter.Value>
             </Setter>
