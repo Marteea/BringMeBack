@@ -19,8 +19,9 @@ namespace BringMeBack
         private string name_children;
         private string firstname_children;
         private User user = null;
+        private List<User> Users = new List<User>();
 
-        
+
 
         public AddChildren()
         {
@@ -39,8 +40,7 @@ namespace BringMeBack
 
         private async void Button_Rechercher(object sender, RoutedEventArgs e)
         {
-            // recuperation des valeurs email et mdp 
-
+            
             name_children = Name.Text;
             firstname_children = FirstName.Text;
 
@@ -87,8 +87,7 @@ namespace BringMeBack
             }
             if (!(user is null))
             {
-                ListViewUsers.Visibility = Visibility.Visible;
-                List<User> Users = new List<User>();
+                ListViewUsers.Visibility = Visibility.Visible;                
                 Users.Add(user);
                 ListViewUsers.ItemsSource = Users;
 
@@ -103,6 +102,7 @@ namespace BringMeBack
         {
 
             dialog_Confirm();
+            
 
 
         }
@@ -114,7 +114,7 @@ namespace BringMeBack
             var content = "Ëtes vous sur de vouloir ajouter cet utilisateur en tant qu'enfant ?";
 
             var yesCommand = new UICommand("oui", cmd => {});
-            var noCommand = new UICommand("Non", cmd => {});
+            
             var cancelCommand = new UICommand("Annuler", cmd => {});
 
             var dialog = new MessageDialog(content, title);
@@ -122,20 +122,11 @@ namespace BringMeBack
             dialog.Commands.Add(yesCommand);
 
             dialog.DefaultCommandIndex = 0;
-            dialog.CancelCommandIndex = 0;
-
-            if (noCommand != null)
-            {
-                dialog.Commands.Add(noCommand);
-                dialog.CancelCommandIndex = (uint)dialog.Commands.Count - 1;
-            }
+            dialog.CancelCommandIndex = 0;           
 
             if (cancelCommand != null)
             {
-                // Devices with a hardware back button
-                // use the hardware button for Cancel.
-                // for other devices, show a third option
-
+                
                 var t_hardwareBackButton = "Windows.Phone.UI.Input.HardwareButtons";
 
                 if (ApiInformation.IsTypePresent(t_hardwareBackButton))
@@ -156,25 +147,69 @@ namespace BringMeBack
             var command = await dialog.ShowAsync();
 
             if (command == null && cancelCommand != null)
-            {
-                // back button was pressed
-                // invoke the UICommand
+            {        
 
                 cancelCommand.Invoked(cancelCommand);
             }
 
             if (command == yesCommand)
             {
-                // handle yes command
-            }
-            else if (command == noCommand)
+                // ajout de l'enfant selectionné
+                var id = ListViewUsers.SelectedIndex;
+                User Userselected = Users[0];
+                AddDBChildrien(Userselected, App.globaluser);
+            }            
+            
+        }
+
+
+
+        private async void AddDBChildrien(User usertoADD,User UserParent)
+        {
+
+            //Create an HTTP client object
+            Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
+
+            //Add a user-agent header to the GET request. 
+            var headers = httpClient.DefaultRequestHeaders;
+
+            //The safe way to add a header value is to use the TryParseAdd method and verify the return value is true,
+            //especially if the header value is coming from user input.
+            string header = "ie";
+            if (!headers.UserAgent.TryParseAdd(header))
             {
-                // handle no command
+                throw new Exception("Invalid header value: " + header);
             }
-            else
+
+            header = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)";
+            if (!headers.UserAgent.TryParseAdd(header))
             {
-                // handle cancel command
+                throw new Exception("Invalid header value: " + header);
             }
+
+            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/Add_Children.php?idenfant=" + usertoADD.id_user + "&idparent=" + UserParent.id_user);
+
+
+            //Send the GET request asynchronously and retrieve the response as a string.
+            Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
+            string httpResponseBody = "";
+
+            try
+            {
+                //Send the GET request
+                httpResponse = await httpClient.GetAsync(requestUri);
+
+                httpResponse.EnsureSuccessStatusCode();
+                httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+
+                //user = JsonConvert.DeserializeObject<User>(httpResponseBody);
+            }
+            catch (Exception ex)
+            {
+                httpResponseBody = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
+
+            }
+
         }
 
 

@@ -59,7 +59,7 @@ namespace BMB
             // recuperation des valeurs email et mdp 
 
             email = Email.Text;
-            password = Password.Text;
+            password = Password.Password;
 
             //Create an HTTP client object
             Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
