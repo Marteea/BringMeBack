@@ -169,7 +169,8 @@
                       FontFamily="Georgia" FontSize="15" FontWeight="Bold">
             </CheckBox>
             <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="S'inscrire" Style="{StaticResource SlidInscription}" Click="Button_Click_Inscription"/>
-            
+            <TextBlock x:Name="libelleErreur" Grid.Row="2"  Grid.Column="4" Grid.ColumnSpan="12" Foreground="Red" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+
         </Grid>
 
     </ScrollViewer>

@@ -39,12 +39,9 @@ namespace BMB
 
         public Connexion()
         {
-            this.InitializeComponent();        
+            this.InitializeComponent(); 
 
-
-        }
-
-        
+        }     
 
 
         private void Button_Switch(object sender, RoutedEventArgs e)
@@ -55,76 +52,84 @@ namespace BMB
 
         private async void Button_Connecter(object sender, RoutedEventArgs e)
         {
-
-            // recuperation des valeurs email et mdp 
-
-            email = Email.Text;
-            password = Password.Password;
-
-            //Create an HTTP client object
-            Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
-
-            //Add a user-agent header to the GET request. 
-            var headers = httpClient.DefaultRequestHeaders;
-
-            //The safe way to add a header value is to use the TryParseAdd method and verify the return value is true,
-            //especially if the header value is coming from user input.
-            string header = "ie";
-            if (!headers.UserAgent.TryParseAdd(header))
+            if(Email.Text!="" && Password.Password != "")
             {
-                throw new Exception("Invalid header value: " + header);
-            }
+                // recuperation des valeurs email et mdp 
 
-            header = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)";
-            if (!headers.UserAgent.TryParseAdd(header))
-            {
-                throw new Exception("Invalid header value: " + header);
-            }
+                email = Email.Text;
+                password = Password.Password;
 
-            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Connexion.php?email=" + email+"&password="+password);
+                //Create an HTTP client object
+                Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
 
-            //Send the GET request asynchronously and retrieve the response as a string.
-            Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
-            string httpResponseBody = "";
+                //Add a user-agent header to the GET request. 
+                var headers = httpClient.DefaultRequestHeaders;
 
-            try
-            {
-                //Send the GET request
-                httpResponse = await httpClient.GetAsync(requestUri);
-                
-                httpResponse.EnsureSuccessStatusCode();
-                httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
-
-                user = JsonConvert.DeserializeObject<User>(httpResponseBody);
-            }
-            catch (Exception ex)
-            {
-                httpResponseBody = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
-                
-            }
-            if(!(user is null))
-            {
-                App.globaluser = user;
-
-                if (user.isparent == 0)// si un enfant se connecte
+                //The safe way to add a header value is to use the TryParseAdd method and verify the return value is true,
+                //especially if the header value is coming from user input.
+                string header = "ie";
+                if (!headers.UserAgent.TryParseAdd(header))
                 {
-                    Frame rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(MainPage), user);
-                }
-                else// si un parent se connecte
-                {
-                    Frame rootFrame = Window.Current.Content as Frame;
-                    rootFrame.Navigate(typeof(MainParent), user);
+                    throw new Exception("Invalid header value: " + header);
                 }
 
-                
-                
+                header = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)";
+                if (!headers.UserAgent.TryParseAdd(header))
+                {
+                    throw new Exception("Invalid header value: " + header);
+                }
+
+                Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Connexion.php?email=" + email + "&password=" + password);
+
+                //Send the GET request asynchronously and retrieve the response as a string.
+                Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
+                string httpResponseBody = "";
+
+                try
+                {
+                    //Send the GET request
+                    httpResponse = await httpClient.GetAsync(requestUri);
+
+                    httpResponse.EnsureSuccessStatusCode();
+                    httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+
+                    user = JsonConvert.DeserializeObject<User>(httpResponseBody);
+                }
+                catch (Exception ex)
+                {
+                    httpResponseBody = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
+
+                }
+                if (!(user is null))
+                {
+                    App.globaluser = user;
+
+                    if (user.isparent == 0)// si un enfant se connecte
+                    {
+                        Frame rootFrame = Window.Current.Content as Frame;
+                        rootFrame.Navigate(typeof(MainPage), user);
+                    }
+                    else// si un parent se connecte
+                    {
+                        Frame rootFrame = Window.Current.Content as Frame;
+                        rootFrame.Navigate(typeof(MainParent), user);
+                    }
+
+
+
+
+                }
+                else
+                {
+                    libelleErreur.Text = "Veuillez saisir le bon email et mot de passe : ce couple d'identifiant est inconnu";
+                }
 
             }
             else
             {
-                libelleErreur.Text = "Veuillez saisir le bon email et mot de passe : ce couple d'identifiant est inconnu";
+                libelleErreur.Text = "Veuillez remplir les deux champs afin de vous connecter";
             }
+            
             
         }
 
