@@ -65,6 +65,20 @@
             </Setter>
 
         </Style>
+        <Style x:Key="SignInFieldDatePicker" TargetType="DatePicker">
+            <Setter Property="FontFamily" Value="Roboto"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="HeaderTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+
+        </Style>
 
         <Style x:Key="SlidConnexion" TargetType="Button">
             <Setter Property="FontFamily" Value="Roboto"/>
@@ -142,7 +156,7 @@
             <Button Grid.Row="1" Grid.Column="17" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Inscription" Style="{StaticResource SlidInscription}" />
             <TextBox x:Name="name" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Nom" />
             <TextBox x:Name="firstname" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Prénom" />
-            <TextBox x:Name="birthdate" Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Date de Naissance" />
+            <DatePicker x:Name="birthDatePicker" Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="12"   Style="{StaticResource SignInFieldDatePicker}" Header="Date de Naissance" />
             <TextBox x:Name="email" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Adresse Email" />
             <TextBox x:Name="password"  Header="Mot de passe" Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" />
             <TextBox Grid.Row="13" Header="Confirmer le mot de passe" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}"  />
@@ -155,7 +169,7 @@
                       FontFamily="Georgia" FontSize="15" FontWeight="Bold">
             </CheckBox>
             <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="S'inscrire" Style="{StaticResource SlidInscription}" Click="Button_Click_Inscription"/>
-
+            
         </Grid>
 
     </ScrollViewer>

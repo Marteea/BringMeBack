@@ -37,6 +37,7 @@ namespace BMB
         private string Birthdate;
         private int IsParent;
         public User user;
+        public DatePicker datePicker;
 
         public Inscription()
         {
@@ -59,9 +60,8 @@ namespace BMB
             Firstname = firstname.Text;
             Email = email.Text;
             Password = password.Text;
-            // recuperer la valeur du datepicker         
-            
-            Birthdate = birthdate.Text;
+            // recuperer la valeur du datepicker   
+            Birthdate = birthDatePicker.Date.Date.ToString("dd/MM/yyyy");            
             
             if (McCheckBox.IsChecked==true){// si la case parent est coché
                 IsParent = 1;
@@ -70,11 +70,6 @@ namespace BMB
             {
                 IsParent = 0;
             }
-
-            
-
-
-
             //Create an HTTP client object
             Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
 
