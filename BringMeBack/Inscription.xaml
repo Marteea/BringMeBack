@@ -7,97 +7,11 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-
-        <Style x:Key="SignInButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Background" Value="#00A6FF"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid x:Name="RootGrid">
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <Storyboard>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="PointerOver">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#00A6FF"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="Pressed">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#00A6FF"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>       
-
-        <Style x:Key="SignInField" TargetType="TextBox">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="HeaderTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-
-        </Style>
-        <Style x:Key="SignInFieldDatePicker" TargetType="DatePicker">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="HeaderTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-
-        </Style>
-
-        <Style x:Key="SlidConnexion" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Background" Value="#969FAA"/>
-            <Setter Property="Foreground" Value="White"/>
-
-        </Style>
-        <Style x:Key="SlidInscription" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Background" Value="#00A6FF"/>
-            <Setter Property="Foreground" Value="White"/>
-
-
-        </Style>
-
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="RessourcesXaml/RessourcesInscription.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Page.Resources>
 
     <ScrollViewer>

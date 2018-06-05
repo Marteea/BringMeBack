@@ -7,63 +7,12 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-
-        <Style x:Key="SignInButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="#00A6FF"/>
-            <Setter Property="Foreground" Value="White"/>    
-            
-        </Style>
-
-        <Style x:Key="SignInField" TargetType="TextBox">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="HeaderTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="SignInFieldPassword" TargetType="PasswordBox">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="White"/>
-            <Setter Property="Foreground" Value="Black"/>
-            <Setter Property="HeaderTemplate">
-                <Setter.Value>
-                    <DataTemplate>
-                        <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
-                    </DataTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="SlidConnexion" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Background" Value="#00A6FF"/>
-            <Setter Property="Foreground" Value="White"/>
-            
-            
-
-        </Style>
-        <Style x:Key="SlidInscription" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Background" Value="#969FAA"/>
-            <Setter Property="Foreground" Value="White"/>
-
-        </Style>
-
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="RessourcesXaml/RessourcesConnexion.xaml"/>
+            </ResourceDictionary.MergedDictionaries>          
+        </ResourceDictionary>
     </Page.Resources>
-
     <ScrollViewer>
         <Grid Background="#343F4B">
             <Grid.RowDefinitions>
@@ -87,9 +36,6 @@
                 <RowDefinition/>
                 <RowDefinition />
                 <RowDefinition />
-
-
-
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
