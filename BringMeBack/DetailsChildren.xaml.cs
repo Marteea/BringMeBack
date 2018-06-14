@@ -38,6 +38,8 @@ namespace BringMeBack
 
             Get_historical(App.principalChildren.id_user);
             NameChilren.Text = App.principalChildren.name_user;
+            
+
 
         }
 
@@ -81,10 +83,20 @@ namespace BringMeBack
             
         }
 
-       
+        private async void GoToSeeMyChildrien()
+        {
+            // Center on New York City
+            var uriNewYork = new Uri(@"bingmaps:?cp=47.6204~-122.3491&ss=1");
 
+            // Launch the Windows Maps app
+            var launcherOptions = new Windows.System.LauncherOptions();
+            launcherOptions.TargetApplicationPackageFamilyName = "Microsoft.WindowsMaps_8wekyb3d8bbwe";
+            var success = await Windows.System.Launcher.LaunchUriAsync(uriNewYork, launcherOptions);
+        }
 
-
-
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            GoToSeeMyChildrien();
+        }
     }
 }

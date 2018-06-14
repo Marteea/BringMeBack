@@ -96,9 +96,9 @@
                             </Ellipse.Fill>
                         </Ellipse>
                         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="12,0,0,0" >
-                            <TextBlock Text="{Binding name_user}"  Style="{ThemeResource SystemAltHighColor}" Foreground="White" />
-                            <TextBlock Text="{Binding  firsname_user}" Style="{ThemeResource SystemAltHighColor}" Foreground="White"/>
-                            <TextBlock Text="{Binding email_user}" Style="{ThemeResource SystemAltHighColor}" Foreground="White"/>
+                            <TextBlock Text="{Binding name_user}"  Foreground="White" />
+                            <TextBlock Text="{Binding  firsname_user}"  Foreground="White"/>
+                            <TextBlock Text="{Binding email_user}" Foreground="White"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>
