@@ -1,23 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
-using System.Diagnostics;
-using Windows.System.UserProfile;
 using BringMeBack.Class;
-using BringMeBack.UserControls;
 using Newtonsoft.Json;
-using Windows.Devices.Geolocation;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -83,10 +69,46 @@ namespace BringMeBack
             
         }
 
-        private async void GoToSeeMyChildrien()// recuperation du dernier emplacement de son enfant
+        public async void GoToSeeMyChildrien()// recuperation du dernier emplacement de son enfant
         {
-            // Center on New York City
-            var uriNewYork = new Uri(@"bingmaps:?cp=47.6204~-122.3491&ss=1");
+
+            // recuperation de la derniere position de l'enfant 
+            //Create an HTTP client object
+            Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
+            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/Get_LastPosition_Children.php?id_user=" + App.principalChildren.id_user);
+            //Send the GET request asynchronously and retrieve the response as a string.
+            Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
+            string httpResponseBody = "";
+            String latitude = "";
+            String longitude = "";
+        
+            try
+            {
+                //Send the GET request
+                httpResponse = await httpClient.GetAsync(requestUri);
+
+                httpResponse.EnsureSuccessStatusCode();
+                httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                List<Historical> historicals = JsonConvert.DeserializeObject<List<Historical>>(httpResponseBody);
+                foreach (Historical his in historicals)
+                {
+                    latitude = his.latitude_historical;
+                    longitude = his.longitude_historical;
+
+                }
+                
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                httpResponseBody = "Error: " + ex.HResult.ToString("X") + " Message: " + ex.Message;
+
+            }
+
+            // creation de la vue bingmap avec ses coordonnées
+            var uriNewYork = new Uri(@"bingmaps:?cp="+latitude+"~"+longitude+"&ss=1");
 
             // Launch the Windows Maps app
             var launcherOptions = new Windows.System.LauncherOptions();

@@ -15,6 +15,8 @@ namespace BringMeBack.Class
         public string text_historical { get; set; }
         public string date_historical { get; set; }
         public string hour_historical { get; set; }
+        public string latitude_historical { get; set; }
+        public string longitude_historical { get; set; }
 
     }
 }
