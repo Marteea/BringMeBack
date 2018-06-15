@@ -7,76 +7,11 @@
     mc:Ignorable="d">
 
     <Page.Resources>
-
-        <Style x:Key="SignInButton" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Background" Value="#00A6FF"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Grid x:Name="RootGrid">
-                            <VisualStateManager.VisualStateGroups>
-                                <VisualStateGroup x:Name="CommonStates">
-                                    <VisualState x:Name="Normal">
-                                        <Storyboard>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="PointerOver">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#00A6FF"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <PointerUpThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-                                    <VisualState x:Name="Pressed">
-                                        <Storyboard>
-                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="RootGrid">
-                                                <DiscreteObjectKeyFrame KeyTime="0" Value="#00A6FF"/>
-                                            </ObjectAnimationUsingKeyFrames>
-                                            <PointerDownThemeAnimation Storyboard.TargetName="RootGrid"/>
-                                        </Storyboard>
-                                    </VisualState>
-
-                                </VisualStateGroup>
-                            </VisualStateManager.VisualStateGroups>
-                            <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" AutomationProperties.AccessibilityView="Raw" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
-        <Style x:Key="SignInField" TargetType="TextBox">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="14"/>
-            <Setter Property="Background" Value="#343F4B"/>
-            <Setter Property="Foreground" Value="White"/>
-
-        </Style>
-
-        <Style x:Key="SlidConnexion" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Background" Value="#00A6FF"/>
-            <Setter Property="Foreground" Value="White"/>
-
-        </Style>
-        <Style x:Key="SlidInscription" TargetType="Button">
-            <Setter Property="FontFamily" Value="Roboto"/>
-
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Background" Value="#969FAA"/>
-            <Setter Property="Foreground" Value="White"/>
-
-
-        </Style>
-
-
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="RessourcesXaml/RessourcesInscription.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Page.Resources>
 
     <ScrollViewer>
@@ -133,14 +68,22 @@
 
             <Button Grid.Row="1" Grid.Column="13" HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Connexion" Style="{StaticResource SlidConnexion}" Click="Button_Click" />
             <Button Grid.Row="1" Grid.Column="17" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Inscription" Style="{StaticResource SlidInscription}" />
-            <TextBox Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Nom" />
-            <TextBox Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Prénom" />
-            <TextBox Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Date de Naissance" />
-            <TextBox Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Adresse Email" />
-            <TextBox Grid.Row="13" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Mot de passe" />
-            <TextBox Grid.Row="15" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Text="Confirmer le Mot de passe" />
-            <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter" Style="{StaticResource SignInButton}" Click="Button_Click_1"/>
-
+            <TextBox x:Name="name" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Nom" />
+            <TextBox x:Name="firstname" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Prénom" />
+            <DatePicker x:Name="birthDatePicker" Grid.Row="7" Grid.Column="4" Grid.ColumnSpan="12"   Style="{StaticResource SignInFieldDatePicker}" Header="Date de Naissance" />
+            <TextBox x:Name="email" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" Header="Adresse Email" />
+            <TextBox x:Name="password"  Header="Mot de passe" Grid.Row="11" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}" />
+            <TextBox Grid.Row="13" Header="Confirmer le mot de passe" Grid.Column="4" Grid.ColumnSpan="12" Style="{StaticResource SignInField}"  />
+            <CheckBox x:Name="McCheckBox"
+                      Grid.Row="15" Grid.Column="2" Foreground="Orange"  
+                      Content="Compte parent" 
+                      Grid.ColumnSpan="12"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      FontFamily="Georgia" FontSize="15" FontWeight="Bold">
+            </CheckBox>
+            <Button Grid.Row="17" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="S'inscrire" Style="{StaticResource SlidInscription}" Click="Button_Click_Inscription"/>
+            <TextBlock x:Name="libelleErreur" Grid.Row="2"  Grid.Column="4" Grid.ColumnSpan="12" Foreground="Red" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center"  />
 
         </Grid>
 

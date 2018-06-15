@@ -26,11 +26,12 @@ namespace BMB
     {
         public Ethylotest()
         {
-            this.InitializeComponent();           
+            this.InitializeComponent();
+            LibelleEthylo.Text = LibelleEthylo.Text + App.globaluser.firstname_user+" - "+App.globaluser.name_user;
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Connect_Ethylo(object sender, RoutedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.Resultat));

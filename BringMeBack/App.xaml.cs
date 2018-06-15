@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BringMeBack.Class;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,12 +21,19 @@ namespace BringMeBack
     /// <summary>
     /// Fournit un comportement spécifique à l'application afin de compléter la classe Application par défaut.
     /// </summary>
+     
+    
+
     sealed partial class App : Application
     {
         /// <summary>
         /// Initialise l'objet d'application de singleton.  Il s'agit de la première ligne du code créé
         /// à être exécutée. Elle correspond donc à l'équivalent logique de main() ou WinMain().
         /// </summary>
+        /// 
+        public static User globaluser = null;
+        public static User principalChildren = null;
+        /// 
         public App()
         {
             this.InitializeComponent();
@@ -66,7 +74,7 @@ namespace BringMeBack
                     // Quand la pile de navigation n'est pas restaurée, accédez à la première page,
                     // puis configurez la nouvelle page en transmettant les informations requises en tant que
                     // paramètre
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(BMB.Connexion), e.Arguments);
                 }
                 // Vérifiez que la fenêtre actuelle est active
                 Window.Current.Activate();

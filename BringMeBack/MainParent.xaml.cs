@@ -1,85 +1,56 @@
-﻿
-using BringMeBack;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using System.Diagnostics;
+using Windows.System;
+using BringMeBack.Class;
+using BringMeBack.UserControls;
+using Newtonsoft.Json;
+using Windows.UI;
+using Xamarin.Forms.Platform.UWP;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-namespace BMB
+namespace BringMeBack
 {
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class Resultat : Page
+    public sealed partial class MainParent : Page
     {
+        private int id_parent;
+        private Class.User user = null;
 
-        private double resultat;
-        private Uri urlImage;
 
-        public Resultat()
+        public MainParent()
         {
             this.InitializeComponent();
-            resultat = AleaResult();
-
-            taux.Text=resultat.ToString()+" G ";
-            
-            if (resultat > 0.5){
-                urlImage = new Uri("ms-appx:///Assets/redcross.png", UriKind.Absolute);
-                LibelleResultat.Text = "Votre Taux est trop élevé veuillez contacter un chauffeur";
-            }
-            else
-            {
-                urlImage = new Uri("ms-appx:///Assets/ok.png", UriKind.Absolute);
-                LibelleResultat.Text = "Votre Taux est correcte vous pouvez rentrer en sécurité";
-            }
-            BitmapImage sourceImage = new BitmapImage(urlImage);
-            Logo.Source = sourceImage;
-        }
-
-        private double  AleaResult()
-        {
-            Random rnd = new Random();
-
-            return Math.Round(GetRandomNumber(0, 1),2);
+            GetChildren();
 
         }
 
-        public double GetRandomNumber(double minimum, double maximum)
-        {
-            Random random = new Random();
-            return random.NextDouble() * (maximum - minimum) + minimum;
-        }
-
-        private async void Button_RamenezMoi(object sender, RoutedEventArgs e)
+        public async void GetChildren()
         {
 
 
-            Uri uri = new Uri("ms-call:+330987654356");
-            await Launcher.LaunchUriAsync(uri);
 
+            id_parent = App.globaluser.id_user;
 
-            //Create an HTTP client object
             Windows.Web.Http.HttpClient httpClient = new Windows.Web.Http.HttpClient();
 
-            //Add a user-agent header to the GET request. 
             var headers = httpClient.DefaultRequestHeaders;
 
-            //The safe way to add a header value is to use the TryParseAdd method and verify the return value is true,
-            //especially if the header value is coming from user input.
             string header = "ie";
             if (!headers.UserAgent.TryParseAdd(header))
             {
@@ -92,17 +63,22 @@ namespace BMB
                 throw new Exception("Invalid header value: " + header);
             }
 
-            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Historical.php?id_user=" + App.globaluser.id_user + "&name_historical=Appel chauffeur&text_historical=Votre Enfant " + App.globaluser.name_user + " - " + App.globaluser.firstname_user + " a appelé un chauffeur le " + DateTime.Today + " a l'heure de " + DateTime.Now);
+            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/Get_Children.php?id_parent=" + id_parent);
 
             //Send the GET request asynchronously and retrieve the response as a string.
             Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
             string httpResponseBody = "";
+
             try
             {
                 //Send the GET request
                 httpResponse = await httpClient.GetAsync(requestUri);
+
                 httpResponse.EnsureSuccessStatusCode();
                 httpResponseBody = await httpResponse.Content.ReadAsStringAsync();
+                user = JsonConvert.DeserializeObject<Class.User>(httpResponseBody);
+                
+                
             }
             catch (Exception ex)
             {
@@ -110,8 +86,45 @@ namespace BMB
 
             }
 
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(BMB.Call), e);
+            if (user == null)
+            {
+                ChildName.Text = "Aucun enfant associé a votre compte";
+                ChildName.FontSize = 14;                
+                ChildrenPicture.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ChildName.Text = user.firstname_user;
+                App.principalChildren = user;
+            }
+            
+
         }
+
+        private void BMB_DetailsChildren(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(DetailsChildren));
+        }
+
+
+        private void Add_User(object sender, RoutedEventArgs e)
+        {
+            Frame rootFrame = Window.Current.Content as Frame;
+            rootFrame.Navigate(typeof(AddChildren));
+        }
+        
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

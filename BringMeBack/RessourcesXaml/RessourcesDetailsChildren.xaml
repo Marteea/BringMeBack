@@ -1,0 +1,11 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:BringMeBack.RessourcesXaml">
+    
+    <Style x:Key="SignInField" TargetType="ItemsStackPanel">
+        <Setter Property="Background" Value="#8492A6"/>
+       
+    </Style>
+
+</ResourceDictionary>
