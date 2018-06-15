@@ -40,7 +40,7 @@ namespace BMB
         public Connexion()
         {
             this.InitializeComponent(); 
-
+            
         }     
 
 

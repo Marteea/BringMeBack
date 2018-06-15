@@ -11,7 +11,7 @@
     <AssemblyName>BringMeBack</AssemblyName>
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.17134.0</TargetPlatformVersion>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
@@ -143,6 +143,7 @@
   <ItemGroup>
     <Content Include="Assets\adduser.png" />
     <Content Include="Assets\back.png" />
+    <Content Include="Assets\back1.png" />
     <Content Include="Assets\btn_BringMeBack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -153,6 +154,8 @@
     <Content Include="Assets\loader.png" />
     <Content Include="Assets\chevron-sign-down.png" />
     <Content Include="Assets\chevron-sign-down.png" />
+    <Content Include="Assets\logoBringMeBack.png" />
+    <Content Include="Assets\logoBringMeBack1.png" />
     <Content Include="Assets\ok.png" />
     <Content Include="Assets\parameter.png" />
     <Content Include="Assets\red cross.jpg" />

@@ -11,7 +11,7 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Foreground="White"  FontFamily="Times New Roman"></TextBlock>
+                    <TextBlock Foreground="White"  FontFamily="Roboto"></TextBlock>
                 </DataTemplate>
             </Setter.Value>
         </Setter>

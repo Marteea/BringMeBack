@@ -20,7 +20,7 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
+                    <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Roboto"></TextBlock>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -31,10 +31,11 @@
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="Margin" Value="0, 20, 0, 0"/>
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
+                    <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Roboto"></TextBlock>
                 </DataTemplate>
             </Setter.Value>
         </Setter>

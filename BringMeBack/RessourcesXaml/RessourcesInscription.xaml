@@ -54,7 +54,7 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
+                    <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Roboto"></TextBlock>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -68,7 +68,7 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Times New Roman"></TextBlock>
+                    <TextBlock Foreground="White"  Text="{Binding}" FontFamily="Roboto"></TextBlock>
                 </DataTemplate>
             </Setter.Value>
         </Setter>

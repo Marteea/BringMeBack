@@ -113,5 +113,10 @@ namespace BMB
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.Call), e);
         }
+
+        private void MenuUc_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
