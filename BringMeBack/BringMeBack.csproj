@@ -103,6 +103,7 @@
     <Compile Include="DetailsChildren.xaml.cs">
       <DependentUpon>DetailsChildren.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Library\GeolocalisationLibrary.cs" />
     <Compile Include="MainParent.xaml.cs">
       <DependentUpon>MainParent.xaml</DependentUpon>
     </Compile>

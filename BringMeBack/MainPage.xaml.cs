@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using System.Diagnostics;
 using Windows.System;
-using BringMeBack.Class;
-
+using Windows.Devices.Geolocation;
+using BringMeBack.Library;
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace BringMeBack
@@ -25,12 +14,13 @@ namespace BringMeBack
     /// </summary>
     public sealed partial class MainPage : Page{
 
+        private GeolocalisationLibrary geolocalisationLibrary = new GeolocalisationLibrary();
+        internal GeolocalisationLibrary GeolocalisationLibrary { get => geolocalisationLibrary; set => geolocalisationLibrary = value; }
 
-       
-        
-        public MainPage()
+        public  MainPage()
         {
             this.InitializeComponent();
+            
             
         }
 
@@ -48,6 +38,10 @@ namespace BringMeBack
 
         private async void BMB_Click(object sender, RoutedEventArgs e)
         {
+
+            Geopoint geopoint = await geolocalisationLibrary.Located();
+            Geopoint point = geopoint;
+
             Uri uri = new Uri("ms-call:+330678594398");
             await Launcher.LaunchUriAsync(uri);
             //Create an HTTP client object
@@ -70,7 +64,7 @@ namespace BringMeBack
                 throw new Exception("Invalid header value: " + header);
             }
 
-            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Historical.php?id_user=" + App.globaluser.id_user + "&name_historical=Appel chauffeur&text_historical=Votre Enfant " + App.globaluser.name_user + " - " + App.globaluser.firstname_user +" a appelé un chauffeur le " + DateTime.Today + " a l'heure de " + DateTime.Now);
+            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Historical.php?id_user=" + App.globaluser.id_user + "&name_historical=Appel chauffeur&text_historical=Votre Enfant " + App.globaluser.name_user + " - " + App.globaluser.firstname_user +" a appelé un chauffeur le " + DateTime.Today + " a l'heure de " + DateTime.Now + "&lattitude_historical=" + point.Position.Latitude + "&longitude_historical=" + point.Position.Longitude);
 
             //Send the GET request asynchronously and retrieve the response as a string.
             Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
@@ -94,6 +88,8 @@ namespace BringMeBack
 
         private async void SOS_Click(object sender, RoutedEventArgs e)
         {
+            Geopoint geopoint = await geolocalisationLibrary.Located();
+            Geopoint point = geopoint;
 
 
             Uri uri = new Uri("ms-call:+112");
@@ -119,7 +115,7 @@ namespace BringMeBack
                 throw new Exception("Invalid header value: " + header);
             }
 
-            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Historical.php?id_user=" + App.globaluser.id_user + "&name_historical=Appel Urgence&text_historical=Votre Enfant " + App.globaluser.name_user + " - " + App.globaluser.firstname_user + " a appelé les secours le " + DateTime.Today + " a l'heure de " + DateTime.Now);
+            Uri requestUri = new Uri("http://businesswallet.fr/Bmb/User_Historical.php?id_user=" + App.globaluser.id_user + "&name_historical=Appel Urgence&text_historical=Votre Enfant " + App.globaluser.name_user + " - " + App.globaluser.firstname_user + " a appelé les secours le " + DateTime.Today + " a l'heure de " + DateTime.Now + "&lattitude_historical=" + point.Position.Latitude + "&longitude_historical="+point.Position.Longitude);
 
             //Send the GET request asynchronously and retrieve the response as a string.
             Windows.Web.Http.HttpResponseMessage httpResponse = new Windows.Web.Http.HttpResponseMessage();
@@ -138,6 +134,8 @@ namespace BringMeBack
             }
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.SOS));
+
+           
         }
 
         private  void Ethy_Click(object sender, RoutedEventArgs e)
@@ -147,11 +145,12 @@ namespace BringMeBack
         }
 
 
+        
+
+        
 
 
-        }
-
-    
-
+    }
 
 }
+    

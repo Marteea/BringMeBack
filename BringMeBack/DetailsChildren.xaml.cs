@@ -83,7 +83,7 @@ namespace BringMeBack
             
         }
 
-        private async void GoToSeeMyChildrien()
+        private async void GoToSeeMyChildrien()// recuperation du dernier emplacement de son enfant
         {
             // Center on New York City
             var uriNewYork = new Uri(@"bingmaps:?cp=47.6204~-122.3491&ss=1");

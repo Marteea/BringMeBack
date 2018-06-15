@@ -106,7 +106,12 @@
         <Button Grid.Row="4" Grid.Column="1" Height="100px" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="4"  Content="Dernière position de mon enfant" Background="#00A6FF" Foreground="White" Click="Button_Click" />
 
 
-
+       <!--<Maps:MapControl
+       x:Name="MapControl1"            
+       ZoomInteractionMode="GestureAndControl"
+       TiltInteractionMode="GestureAndControl"   
+       MapServiceToken="MU3DqOB2mlL0cFwnyMrG7QBVQfFZzAfHrBgw4vVqArGMUOum7bdwytrihf_"/>
+        -->
 
 
 
