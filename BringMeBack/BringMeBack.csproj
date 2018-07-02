@@ -144,6 +144,7 @@
   <ItemGroup>
     <Content Include="Assets\adduser.png" />
     <Content Include="Assets\back.png" />
+    <Content Include="Assets\back1.png" />
     <Content Include="Assets\btn_BringMeBack.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -154,6 +155,8 @@
     <Content Include="Assets\loader.png" />
     <Content Include="Assets\chevron-sign-down.png" />
     <Content Include="Assets\chevron-sign-down.png" />
+    <Content Include="Assets\logoBringMeBack.png" />
+    <Content Include="Assets\logoBringMeBack1.png" />
     <Content Include="Assets\ok.png" />
     <Content Include="Assets\parameter.png" />
     <Content Include="Assets\red cross.jpg" />

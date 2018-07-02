@@ -32,8 +32,7 @@
         
         
         <UC:MenuUserControl TabIndex="1" x:Name="MenuUc" CurrentPage="Ethylotest"
-                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-
+                            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Loaded="MenuUc_Loaded"/>
 
 
         <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="2">
