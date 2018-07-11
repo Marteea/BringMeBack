@@ -35,6 +35,7 @@
                             Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Loaded="MenuUc_Loaded"/>
 
 
+
         <Border Grid.Row="1" Grid.Column="0" Grid.RowSpan="4" Grid.ColumnSpan="2">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,5" StartPoint="0.5,0">

@@ -62,20 +62,17 @@
             </Grid.ColumnDefinitions>
 
 
+
+
             <Button Grid.Row="1" Grid.Column="11" Height="35" HorizontalAlignment="Right" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Connexion" Style="{StaticResource SlidConnexion}" />
-
             <Button Grid.Row="1" Grid.Column="15" Height="35" HorizontalAlignment="Left" VerticalAlignment="Stretch" Grid.ColumnSpan="4"  Content="Inscription" Style="{StaticResource SlidInscription}" Click="Button_Switch" />
-
             <Image Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="16" Grid.RowSpan="8" Source="ms-appx:///Assets/logoBringMeBack1.png"/>
-
+            
             <TextBlock x:Name="libelleErreur" Grid.RowSpan="2" Grid.Row="11"  Grid.Column="2" Grid.ColumnSpan="16" Foreground="Red" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap" />
-
             <TextBox x:Name="Email" Grid.Row="12" Grid.Column="2" Grid.ColumnSpan="16" Height="60" Style="{StaticResource SignInField}" Header="Adresse Email" />
-
             <PasswordBox x:Name="Password" Grid.Row="13" Grid.Column="2" Height="60" Grid.ColumnSpan="16" Style="{StaticResource SignInFieldPassword}" Header="Mot de passe" />
             
             <Button x:Name="buttonLogin" Height="35" Grid.Row="16" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter" Style="{StaticResource SlidConnexion}" Click="Button_Connecter"/>
-            <MediaElement Name="media" Visibility="Collapsed"/>
 
         </Grid>
 

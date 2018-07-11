@@ -115,8 +115,10 @@ namespace BMB
         }
 
 
+
         private void MenuUc_Loaded(object sender, RoutedEventArgs e)
         { 
         } 
+
     }
 }

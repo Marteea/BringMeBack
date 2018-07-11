@@ -28,8 +28,10 @@ namespace BMB
 
         public Connexion()
         {
+
             this.InitializeComponent();
             speechsynthesizer = new SpeechSynthesizer();
+
             
         }     
 

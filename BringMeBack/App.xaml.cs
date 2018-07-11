@@ -39,6 +39,7 @@ namespace BringMeBack
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
             ApplicationView.PreferredLaunchViewSize=new Size(500, 700);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
 
