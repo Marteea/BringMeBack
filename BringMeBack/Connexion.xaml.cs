@@ -3,24 +3,12 @@ using BringMeBack;
 using BringMeBack.Class;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Threading.Tasks;
-using Windows.Data.Json;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
+using Windows.Media.SpeechSynthesis;
+
+
+
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -36,18 +24,24 @@ namespace BMB
         private string email;
         private string password;
         private User user = null;
+        SpeechSynthesizer speechsynthesizer;
 
         public Connexion()
         {
-            this.InitializeComponent(); 
-
+            this.InitializeComponent();
+            speechsynthesizer = new SpeechSynthesizer();
+            
         }     
 
 
-        private void Button_Switch(object sender, RoutedEventArgs e)
+        private async void Button_Switch(object sender, RoutedEventArgs e)
         {
+
+            
             Frame rootFrame = Window.Current.Content as Frame;
             rootFrame.Navigate(typeof(BMB.Inscription));
+            
+            
         }
 
         private async void Button_Connecter(object sender, RoutedEventArgs e)
@@ -133,6 +127,9 @@ namespace BMB
             
         }
 
+
         
+
+
     }
 }

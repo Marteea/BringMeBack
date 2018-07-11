@@ -88,5 +88,7 @@
             >            
             <Image Source="ms-appx:///Assets/chevron-sign-down.png" />
         </Button>
+
+        <MediaElement Name="media" Visibility="Collapsed"/>
     </Grid>
 </Page>

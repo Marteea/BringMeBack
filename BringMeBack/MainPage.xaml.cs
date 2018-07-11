@@ -5,6 +5,11 @@ using Windows.UI.Xaml.Navigation;
 using Windows.System;
 using Windows.Devices.Geolocation;
 using BringMeBack.Library;
+using Windows.Media.SpeechSynthesis;
+using System.Threading.Tasks;
+using Windows.Media.SpeechRecognition;
+using Windows.UI.Core;
+using System.Collections.Generic;
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace BringMeBack
@@ -16,12 +21,20 @@ namespace BringMeBack
 
         private GeolocalisationLibrary geolocalisationLibrary = new GeolocalisationLibrary();
         internal GeolocalisationLibrary GeolocalisationLibrary { get => geolocalisationLibrary; set => geolocalisationLibrary = value; }
+        SpeechSynthesizer speechsynthesizer;
+        SpeechRecognizer recognizer;
+        CoreDispatcher dispatcher;
 
         public  MainPage()
         {
             this.InitializeComponent();
+            speechsynthesizer = new SpeechSynthesizer();
             
+
             
+
+
+
         }
 
         
@@ -82,8 +95,34 @@ namespace BringMeBack
 
             }
 
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(BMB.Call),e);
+
+            //Demande du nom avant d'aller sur la page call
+            //SpeechSynthesisStream stream = await speechsynthesizer.SynthesizeTextToStreamAsync("Appel du chauffeur le plus proche : veuillez confirmer votre prénom ");
+            //media.SetSource(stream, stream.ContentType);
+            //media.Play();
+
+
+            //test
+            SpeechRecognizer speechRecognizer = new SpeechRecognizer();
+            speechRecognizer.Constraints.Add(
+                new SpeechRecognitionListConstraint(new List<String>() { "Start Listening" }));
+
+            // Compile the new constraints
+            SpeechRecognitionCompilationResult compilationResult =
+                                                await speechRecognizer.CompileConstraintsAsync();
+
+            // Subscribe to event when command is recognized
+            speechRecognizer.ContinuousRecognitionSession.ResultGenerated +=
+                ContinuousRecognitionSession_ResultGenerated;
+
+            // Start recognizing
+            await speechRecognizer.ContinuousRecognitionSession.StartAsync();
+
+
+
+            //await Task.Delay(TimeSpan.FromSeconds(10));
+            //Frame rootFrame = Window.Current.Content as Frame;
+            //rootFrame.Navigate(typeof(BMB.Call),e);
         }
 
         private async void SOS_Click(object sender, RoutedEventArgs e)
@@ -145,9 +184,22 @@ namespace BringMeBack
         }
 
 
-        
+        private void ContinuousRecognitionSession_ResultGenerated(
+                        SpeechContinuousRecognitionSession sender,
+                        SpeechContinuousRecognitionResultGeneratedEventArgs args)
+        {
+            if (args.Result.Text == "Start Listening")
+            {
+                // if you need to do something on the UI thread, 
+                // make sure to use a dispatcher
+                
+            }
+        }
 
-        
+
+
+
+
 
 
     }

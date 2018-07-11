@@ -75,7 +75,7 @@
             <PasswordBox x:Name="Password" Grid.Row="13" Grid.Column="2" Height="60" Grid.ColumnSpan="16" Style="{StaticResource SignInFieldPassword}" Header="Mot de passe" />
             
             <Button x:Name="buttonLogin" Height="35" Grid.Row="16" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="12"  Content="Se Connecter" Style="{StaticResource SlidConnexion}" Click="Button_Connecter"/>
-
+            <MediaElement Name="media" Visibility="Collapsed"/>
 
         </Grid>
 
