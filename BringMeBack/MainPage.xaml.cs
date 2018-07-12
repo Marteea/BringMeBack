@@ -97,15 +97,30 @@ namespace BringMeBack
 
 
             //Demande du nom avant d'aller sur la page call
-            //SpeechSynthesisStream stream = await speechsynthesizer.SynthesizeTextToStreamAsync("Appel du chauffeur le plus proche : veuillez confirmer votre prénom ");
-            //media.SetSource(stream, stream.ContentType);
-            //media.Play();
+            SpeechSynthesisStream stream = await speechsynthesizer.SynthesizeTextToStreamAsync("Appel du chauffeur le plus proche : veuillez confirmer votre prénom ");
+            media.SetSource(stream, stream.ContentType);
+            media.Play();
+            //media.MediaEnded += Media_MediaEnded;
 
+
+           
+
+
+
+            //await Task.Delay(TimeSpan.FromSeconds(10));
+            //Frame rootFrame = Window.Current.Content as Frame;
+            //rootFrame.Navigate(typeof(BMB.Call),e);
+        }
+
+        private async void Media_MediaEnded(object sender, RoutedEventArgs e)
+        {
+
+            media = new MediaElement();
+
+            media.MediaEnded -= Media_MediaEnded;
 
             //test
             SpeechRecognizer speechRecognizer = new SpeechRecognizer();
-            speechRecognizer.Constraints.Add(
-                new SpeechRecognitionListConstraint(new List<String>() { "Start Listening" }));
 
             // Compile the new constraints
             SpeechRecognitionCompilationResult compilationResult =
@@ -117,12 +132,6 @@ namespace BringMeBack
 
             // Start recognizing
             await speechRecognizer.ContinuousRecognitionSession.StartAsync();
-
-
-
-            //await Task.Delay(TimeSpan.FromSeconds(10));
-            //Frame rootFrame = Window.Current.Content as Frame;
-            //rootFrame.Navigate(typeof(BMB.Call),e);
         }
 
         private async void SOS_Click(object sender, RoutedEventArgs e)
